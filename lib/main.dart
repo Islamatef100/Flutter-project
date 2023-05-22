@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:record/record.dart';
-
+import 'package:vibration/vibration.dart';
 void main() {
   runApp(MyApp());
 }
@@ -62,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
   double volume0to(int maxVolumeToDisplay) {
     if (((average * maxVolumeToDisplay).round().abs()) > 70) {
       flag = Color.fromARGB(255, 122, 7, 1);
+      Vibration.vibrate(duration: 500); // Vibrate for 500 milliseconds
     } else {
       flag = Colors.white;
     }
